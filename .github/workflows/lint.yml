@@ -21,7 +21,5 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-      - name: Download Checkstyle
-        run: wget -O checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.21.4/checkstyle-10.21.4-all.jar
       - name: Run Checkstyle
-        run: java -jar checkstyle.jar -c config/checkstyle/checkstyle.xml src/
+        run: java -jar checkstyle/checkstyle.jar -c checkstyle/checkstyle.xml src/
