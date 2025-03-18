@@ -2,7 +2,7 @@
 <!DOCTYPE presentation SYSTEM "jabberpoint.dtd">
 <presentation>
     <version>1.0.0</version>
-    <presentationTitle>Demo com.nhlstenden.Presentation</presentationTitle>
+    <presentationTitle>Demo presentation</presentationTitle>
     <slide>
         <title>com.nhlstenden.JabberPoint</title>
         <textItem>A text item with no styles, so default style</textItem>

@@ -1,10 +1,12 @@
-package com.nhlstenden;
+package com.nhlstenden.presentation;
+
+import com.nhlstenden.SlideViewerComponent;
 
 import java.util.ArrayList;
 
 
 /**
- * <p>com.nhlstenden.Presentation houdt de slides in de presentatie bij.</p>
+ * <p>com.nhlstenden.presentation.Presentation houdt de slides in de presentatie bij.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 public class Presentation {
 	private String showTitle; // de titel van de presentatie
 	private ArrayList<Slide> showList = null; // een ArrayList met de Slides
-	private int currentSlideNumber = 0; // het slidenummer van de huidige com.nhlstenden.Slide
+	private int currentSlideNumber = 0; // het slidenummer van de huidige com.nhlstenden.presentation.Slide
 	private SlideViewerComponent slideViewComponent = null; // de viewcomponent voor de Slides
 
 	public Presentation() {
@@ -92,7 +94,7 @@ public class Presentation {
 			return (Slide)showList.get(number);
 	}
 
-	// Geef de huidige com.nhlstenden.Slide
+	// Geef de huidige com.nhlstenden.presentation.Slide
 	public Slide getCurrentSlide() {
 		return getSlide(currentSlideNumber);
 	}

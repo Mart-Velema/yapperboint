@@ -1,4 +1,8 @@
-package com.nhlstenden;
+package com.nhlstenden.presentation;
+
+import com.nhlstenden.presentation.item.SlideItem;
+import com.nhlstenden.Style;
+import com.nhlstenden.TextItem;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -25,7 +29,7 @@ public class Slide {
 		items = new Vector<SlideItem>();
 	}
 
-	// Voeg een com.nhlstenden.SlideItem toe
+	// Voeg een com.nhlstenden.presentation.item.SlideItem toe
 	public void append(SlideItem anItem) {
 		items.addElement(anItem);
 	}
@@ -45,7 +49,7 @@ public class Slide {
 		append(new TextItem(level, message));
 	}
 
-	// geef het betreffende com.nhlstenden.SlideItem
+	// geef het betreffende com.nhlstenden.presentation.item.SlideItem
 	public SlideItem getSlideItem(int number) {
 		return (SlideItem)items.elementAt(number);
 	}
@@ -55,7 +59,7 @@ public class Slide {
 		return items;
 	}
 
-	// geef de afmeting van de com.nhlstenden.Slide
+	// geef de afmeting van de com.nhlstenden.presentation.Slide
 	public int getSize() {
 		return items.size();
 	}

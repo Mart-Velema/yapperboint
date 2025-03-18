@@ -1,9 +1,12 @@
-package com.nhlstenden;
+package com.nhlstenden.accessor;
+
+import com.nhlstenden.DemoPresentation;
+import com.nhlstenden.presentation.Presentation;
 
 import java.io.IOException;
 
 /**
- * <p>Een com.nhlstenden.Accessor maakt het mogelijk om gegevens voor een presentatie
+ * <p>Een com.nhlstenden.accessor.Accessor maakt het mogelijk om gegevens voor een presentatie
  * te lezen of te schrijven.</p>
  * <p>Niet-abstracte subklassen moeten de load en de save methode implementeren.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
