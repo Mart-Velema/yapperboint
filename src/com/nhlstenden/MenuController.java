@@ -1,3 +1,5 @@
+package com.nhlstenden;
+
 import java.awt.MenuBar;
 import java.awt.Frame;
 import java.awt.Menu;
@@ -39,7 +41,7 @@ public class MenuController extends MenuBar {
 	protected static final String VIEW = "View";
 	
 	protected static final String TESTFILE = "test.xml";
-	protected static final String SAVEFILE = "dump.xml";
+	protected static final String SAVEFILE = "demo.xml";
 	
 	protected static final String IOEX = "IO Exception: ";
 	protected static final String LOADERR = "Load Error";

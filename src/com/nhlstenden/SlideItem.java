@@ -1,8 +1,10 @@
+package com.nhlstenden;
+
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
-/** <p>De abstracte klasse voor een item op een Slide<p>
+/** <p>De abstracte klasse voor een item op een com.nhlstenden.Slide<p>
  * <p>Alle SlideItems hebben tekenfunctionaliteit.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn

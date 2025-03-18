@@ -1,3 +1,5 @@
+package com.nhlstenden;
+
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -66,6 +68,6 @@ public class BitmapItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "com.nhlstenden.BitmapItem[" + getLevel() + "," + imageName + "]";
 	}
 }

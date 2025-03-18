@@ -1,8 +1,10 @@
+package com.nhlstenden;
+
 import javax.swing.JOptionPane;
 
 import java.io.IOException;
 
-/** JabberPoint Main Programma
+/** com.nhlstenden.JabberPoint Main Programma
  * <p>This program is distributed under the terms of the accompanying
  * COPYRIGHT.txt file (which is NOT the GNU General Public License).
  * Please read it. Your use of the software constitutes acceptance
