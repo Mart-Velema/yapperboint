@@ -1,5 +1,7 @@
 package com.nhlstenden.menubar;
 
-public class JabberMenuBar
+import javax.swing.*;
+
+public class JabberMenuBar extends JMenuBar
 {
 }
