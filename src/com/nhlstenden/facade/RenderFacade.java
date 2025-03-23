@@ -1,5 +1,9 @@
 package com.nhlstenden.facade;
 
+import com.nhlstenden.menubar.JabberMenuBar;
+import com.nhlstenden.menubar.Language;
+import com.nhlstenden.menubar.MenuLabel;
+import com.nhlstenden.menubar.Translation;
 import com.nhlstenden.presentation.Slide;
 
 import javax.swing.*;
@@ -13,7 +17,9 @@ public class RenderFacade
 
     private RenderFacade()
     {
-        this.jFrame = new JFrame();
+        this.jFrame = new JFrame(Translation.getInstance().getLanguage(Language.EN, MenuLabel.YABBER_BOINT_TITLE));
+
+        this.makeWindow();
     }
 
     public RenderFacade getInstance()
@@ -36,33 +42,31 @@ public class RenderFacade
         return WIDTH;
     }
 
-    public void setWIDTH(int WIDTH)
-    {
-        this.WIDTH = WIDTH;
-    }
-
     public int getHEIGHT()
     {
         return HEIGHT;
     }
 
-    public void setHEIGHT(int HEIGHT)
-    {
-        this.HEIGHT = HEIGHT;
-    }
-
     public void makeWindow()
     {
-
-    }
-
-    public void renderSlide(Slide slide)
-    {
-
+        this.jFrame.setJMenuBar(new JabberMenuBar());
+        this.jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.jFrame.setSize(WIDTH, HEIGHT);
+        this.jFrame.setVisible(true);
     }
 
     public void clear()
     {
+        this.jFrame.getContentPane().removeAll();
+        this.jFrame.repaint();
+    }
 
+    public void renderSlide(Slide slide)
+    {
+        this.clear();
+
+        //  TODO: Fix Slide and Presentation, then add this logic
+
+        this.jFrame.repaint();
     }
 }
