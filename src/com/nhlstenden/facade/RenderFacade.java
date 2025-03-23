@@ -8,11 +8,12 @@ public class RenderFacade
 {
     private static final RenderFacade INSTANCE = new RenderFacade();
     private JFrame jFrame;
-    private int WIDTH = 1200;
-    private int HEIGHT = 800;
+    private static final int WIDTH = 1200;
+    private static final int HEIGHT = 800;
 
     private RenderFacade()
     {
+        this.jFrame = new JFrame();
     }
 
     public RenderFacade getInstance()
