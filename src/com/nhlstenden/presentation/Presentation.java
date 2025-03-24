@@ -1,105 +1,64 @@
 package com.nhlstenden.presentation;
 
-import com.nhlstenden.SlideViewerComponent;
-
 import java.util.ArrayList;
+import java.util.List;
 
+public class Presentation
+{
+    private String version;
+    private String presentationTitle;
+    private List<Slide> slides;
+    private static final Presentation INSTANCE = new Presentation();
 
-/**
- * <p>com.nhlstenden.presentation.Presentation houdt de slides in de presentatie bij.</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
+    private Presentation()
+    {
+        this.version = "0.0.1";
+        this.presentationTitle = "YabberBoint";
+        this.slides = new ArrayList<>();
+    }
 
-public class Presentation {
-	private String showTitle; // de titel van de presentatie
-	private ArrayList<Slide> showList = null; // een ArrayList met de Slides
-	private int currentSlideNumber = 0; // het slidenummer van de huidige com.nhlstenden.presentation.Slide
-	private SlideViewerComponent slideViewComponent = null; // de viewcomponent voor de Slides
+    public static Presentation getInstance()
+    {
+        return INSTANCE;
+    }
 
-	public Presentation() {
-		slideViewComponent = null;
-		clear();
-	}
+    public String getVersion()
+    {
+        return version;
+    }
 
-	public Presentation(SlideViewerComponent slideViewerComponent) {
-		this.slideViewComponent = slideViewerComponent;
-		clear();
-	}
+    public void setVersion(String version)
+    {
+        this.version = version;
+    }
 
-	public int getSize() {
-		return showList.size();
-	}
+    public String getPresentationTitle()
+    {
+        return presentationTitle;
+    }
 
-	public String getTitle() {
-		return showTitle;
-	}
+    public void setPresentationTitle(String presentationTitle)
+    {
+        this.presentationTitle = presentationTitle;
+    }
 
-	public void setTitle(String nt) {
-		showTitle = nt;
-	}
+    public List<Slide> getSlides()
+    {
+        return slides;
+    }
 
-	public void setShowView(SlideViewerComponent slideViewerComponent) {
-		this.slideViewComponent = slideViewerComponent;
-	}
+    public void setSlides(List<Slide> slides)
+    {
+        this.slides = slides;
+    }
 
-	// geef het nummer van de huidige slide
-	public int getSlideNumber() {
-		return currentSlideNumber;
-	}
+    public void addSlide(Slide slide)
+    {
+        this.slides.add(slide);
+    }
 
-	// verander het huidige-slide-nummer en laat het aan het window weten.
-	public void setSlideNumber(int number) {
-		currentSlideNumber = number;
-		if (slideViewComponent != null) {
-			slideViewComponent.update(this, getCurrentSlide());
-		}
-	}
-
-	// ga naar de vorige slide tenzij je aan het begin van de presentatie bent
-	public void prevSlide() {
-		if (currentSlideNumber > 0) {
-			setSlideNumber(currentSlideNumber - 1);
-	    }
-	}
-
-	// Ga naar de volgende slide tenzij je aan het einde van de presentatie bent.
-	public void nextSlide() {
-		if (currentSlideNumber < (showList.size()-1)) {
-			setSlideNumber(currentSlideNumber + 1);
-		}
-	}
-
-	// Verwijder de presentatie, om klaar te zijn voor de volgende
-	void clear() {
-		showList = new ArrayList<Slide>();
-		setSlideNumber(-1);
-	}
-
-	// Voeg een slide toe aan de presentatie
-	public void append(Slide slide) {
-		showList.add(slide);
-	}
-
-	// Geef een slide met een bepaald slidenummer
-	public Slide getSlide(int number) {
-		if (number < 0 || number >= getSize()){
-			return null;
-	    }
-			return (Slide)showList.get(number);
-	}
-
-	// Geef de huidige com.nhlstenden.presentation.Slide
-	public Slide getCurrentSlide() {
-		return getSlide(currentSlideNumber);
-	}
-
-	public void exit(int n) {
-		System.exit(n);
-	}
+    public void clear()
+    {
+        this.slides = new ArrayList<>();
+    }
 }
