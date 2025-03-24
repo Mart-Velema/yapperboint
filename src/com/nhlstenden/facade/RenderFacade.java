@@ -4,7 +4,9 @@ import com.nhlstenden.menubar.JabberMenuBar;
 import com.nhlstenden.menubar.Language;
 import com.nhlstenden.menubar.MenuLabel;
 import com.nhlstenden.menubar.Translation;
+import com.nhlstenden.presentation.Presentation;
 import com.nhlstenden.presentation.Slide;
+import com.nhlstenden.presentation.item.SlideItem;
 
 import javax.swing.*;
 
@@ -22,7 +24,7 @@ public class RenderFacade
         this.makeWindow();
     }
 
-    public RenderFacade getInstance()
+    public static RenderFacade getInstance()
     {
         return RenderFacade.INSTANCE;
     }
@@ -35,16 +37,6 @@ public class RenderFacade
     public void setjFrame(JFrame jFrame)
     {
         this.jFrame = jFrame;
-    }
-
-    public int getWIDTH()
-    {
-        return WIDTH;
-    }
-
-    public int getHEIGHT()
-    {
-        return HEIGHT;
     }
 
     public void makeWindow()
@@ -65,7 +57,14 @@ public class RenderFacade
     {
         this.clear();
 
-        //  TODO: Fix Slide and Presentation, then add this logic
+        String presentationTitle = Presentation.getInstance().getPresentationTitle();
+        this.jFrame.setTitle(presentationTitle + ": " +  slide.getTitle());
+
+        for (SlideItem currentSlideItem : slide.getItems())
+        {
+            JLabel jLabel = currentSlideItem.getJLabel();
+            this.jFrame.add(jLabel);
+        }
 
         this.jFrame.repaint();
     }
