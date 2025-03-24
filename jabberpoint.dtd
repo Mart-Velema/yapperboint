@@ -1,11 +1,16 @@
-<!--
- Document Type Definition voor JabberPoint presentatties
- $Id$
- -->
-<!ELEMENT showtitle (#PCDATA)>
-<!ELEMENT presentation (showtitle,slide+)>
-<!ELEMENT title (#PCDATA)>
-<!ELEMENT slide (title, item*)>
-<!ELEMENT item (#PCDATA)>
-<!ATTLIST item kind CDATA #REQUIRED>
-<!ATTLIST item level CDATA #REQUIRED>
+<!ELEMENT presentation (version, presentationTitle, slide*)>
+        <!ELEMENT presentationTitle (#PCDATA)>
+        <!ELEMENT version (#PCDATA)>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT slide (title, (textItem|imageItem)*)>
+        <!ELEMENT textItem (#PCDATA)>
+        <!ATTLIST textItem
+                color CDATA #IMPLIED
+                font CDATA #IMPLIED
+                indent CDATA #IMPLIED
+                size CDATA #IMPLIED
+                style CDATA #IMPLIED>
+        <!ELEMENT imageItem (#PCDATA)>
+        <!ATTLIST imageItem
+                x CDATA #REQUIRED
+                y CDATA #REQUIRED>
