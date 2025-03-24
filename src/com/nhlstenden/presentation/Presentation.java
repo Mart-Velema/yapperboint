@@ -7,6 +7,7 @@ public class Presentation
 {
     private String version;
     private String presentationTitle;
+    private int currentSlideNumber;
     private List<Slide> slides;
     private static final Presentation INSTANCE = new Presentation();
 
@@ -14,6 +15,7 @@ public class Presentation
     {
         this.version = "0.0.1";
         this.presentationTitle = "YabberBoint";
+        this.currentSlideNumber = 0;
         this.slides = new ArrayList<>();
     }
 
@@ -42,6 +44,16 @@ public class Presentation
         this.presentationTitle = presentationTitle;
     }
 
+    public int getCurrentSlideNumber()
+    {
+        return this.currentSlideNumber;
+    }
+
+    public void setCurrentSlideNumber(int currentSlideNumber)
+    {
+        this.currentSlideNumber = currentSlideNumber;
+    }
+
     public List<Slide> getSlides()
     {
         return slides;
@@ -57,8 +69,24 @@ public class Presentation
         this.slides.add(slide);
     }
 
-    public void clear()
+    public Slide goToSlide(int index)
     {
-        this.slides = new ArrayList<>();
+        this.setCurrentSlideNumber(index);
+        return this.slides.get(currentSlideNumber);
+    }
+
+    public Slide nextSlide()
+    {
+        return this.goToSlide(this.currentSlideNumber++);
+    }
+
+    public Slide previousSlide()
+    {
+        return this.goToSlide(this.currentSlideNumber--);
+    }
+
+    public Slide getCurrentSlide()
+    {
+        return this.slides.get(currentSlideNumber);
     }
 }

@@ -1,159 +1,177 @@
 package com.nhlstenden.accessor;
 
-import java.util.Vector;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.FileWriter;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import com.nhlstenden.*;
+import com.nhlstenden.facade.RenderFacade;
 import com.nhlstenden.presentation.Presentation;
 import com.nhlstenden.presentation.Slide;
+import com.nhlstenden.presentation.item.SlideImageItem;
 import com.nhlstenden.presentation.item.SlideItem;
-import org.xml.sax.SAXException;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.NodeList;
+import com.nhlstenden.presentation.item.SlideTextItem;
+import com.nhlstenden.style.StyleBuilder;
+import com.nhlstenden.style.StyleDirector;
 
+import javax.swing.*;
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
-/** com.nhlstenden.accessor.XMLAccessor, reads and writes XML files
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
-public class XMLAccessor extends Accessor
+public class XMLAccessor implements Accessor
 {
-	
-    /** Default API to use. */
-    protected static final String DEFAULT_API_TO_USE = "dom";
-    
-    /** namen van xml tags of attributen */
-    protected static final String SHOWTITLE = "showtitle";
-    protected static final String SLIDETITLE = "title";
-    protected static final String SLIDE = "slide";
-    protected static final String ITEM = "item";
-    protected static final String LEVEL = "level";
-    protected static final String KIND = "kind";
-    protected static final String TEXT = "text";
-    protected static final String IMAGE = "image";
-    
-    /** tekst van messages */
-    protected static final String PCE = "Parser Configuration Exception";
-    protected static final String UNKNOWNTYPE = "Unknown Element type";
-    protected static final String NFE = "Number Format Exception";
-    
-    
-    private String getTitle(Element element, String tagName) {
-    	NodeList titles = element.getElementsByTagName(tagName);
-    	return titles.item(0).getTextContent();
-    	
-    }
+	private XMLEventReader eventReader;
 
-	public void loadFile(Presentation presentation, String filename) throws IOException {
-		int slideNumber, itemNumber, max = 0, maxItems = 0;
-		try {
-			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();    
-			Document document = builder.parse(new File(filename)); // maak een JDOM document
-			Element doc = document.getDocumentElement();
-			presentation.setTitle(getTitle(doc, SHOWTITLE));
 
-			NodeList slides = doc.getElementsByTagName(SLIDE);
-			max = slides.getLength();
-			for (slideNumber = 0; slideNumber < max; slideNumber++) {
-				Element xmlSlide = (Element) slides.item(slideNumber);
-				Slide slide = new Slide();
-				slide.setTitle(getTitle(xmlSlide, SLIDETITLE));
-				presentation.append(slide);
-				
-				NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
-				maxItems = slideItems.getLength();
-				for (itemNumber = 0; itemNumber < maxItems; itemNumber++) {
-					Element item = (Element) slideItems.item(itemNumber);
-					loadSlideItem(slide, item);
+	// XML tag names
+	private static final String PRESENTATION = "presentation";
+	private static final String VERSION = "version";
+	private static final String PRESENTATION_TITLE = "presentationTitle";
+	private static final String SLIDE = "slide";
+	private static final String TITLE = "title";
+	private static final String TEXT_ITEM = "textItem";
+	private static final String IMAGE_ITEM = "imageItem";
+
+	// QNames to get Attributes
+	private static final QName STYLE = new QName("style");
+	private static final QName FONT = new QName("font");
+	private static final QName COLOR = new QName("color");
+	private static final QName SIZE = new QName("size");
+	private static final QName INDENT = new QName("indent");
+	private static final QName IMAGE_X = new QName("x");
+	private static final QName IMAGE_Y = new QName("y");
+
+	@Override
+	public void loadFile(String fileName)
+	{
+		try (InputStream inputStream = new FileInputStream(fileName))
+		{
+			XMLInputFactory factory = XMLInputFactory.newInstance();
+			eventReader = factory.createXMLEventReader(inputStream);
+
+			Presentation presentation = Presentation.getInstance();
+			presentation.getSlides().clear();
+
+			while (eventReader.hasNext())
+			{
+				XMLEvent event = eventReader.nextEvent();
+				if (!event.isStartElement())
+				{
+					continue;
+				}
+				StartElement startElement = event.asStartElement();
+
+
+				switch (startElement.getName().getLocalPart())
+				{
+					case VERSION:
+						event = eventReader.nextEvent();
+						presentation.setVersion(event.asCharacters().getData());
+						break;
+					case PRESENTATION_TITLE:
+						event = eventReader.nextEvent();
+						presentation.setPresentationTitle(event.asCharacters().getData());
+						break;
+					case SLIDE:
+						presentation.addSlide(new Slide());
+						break;
+					case TITLE:
+						event = eventReader.nextEvent();
+						presentation.getSlides().getLast().setTitle(event.asCharacters().getData());
+						break;
+					case TEXT_ITEM:
+						presentation.getSlides().getLast().addItem(handleTextItem(startElement));
+						break;
+					case IMAGE_ITEM:
+						presentation.getSlides().getLast().addItem(handleImageItem(startElement));
+						break;
 				}
 			}
-		} 
-		catch (IOException iox) {
-			System.err.println(iox.toString());
 		}
-		catch (SAXException sax) {
-			System.err.println(sax.getMessage());
-		}
-		catch (ParserConfigurationException pcx) {
-			System.err.println(PCE);
-		}	
-	}
-
-	protected void loadSlideItem(Slide slide, Element item) {
-		int level = 1; // default
-		NamedNodeMap attributes = item.getAttributes();
-		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
-		if (leveltext != null) {
-			try {
-				level = Integer.parseInt(leveltext);
-			}
-			catch(NumberFormatException x) {
-				System.err.println(NFE);
-			}
-		}
-		String type = attributes.getNamedItem(KIND).getTextContent();
-		if (TEXT.equals(type)) {
-			slide.append(new TextItem(level, item.getTextContent()));
-		}
-		else {
-			if (IMAGE.equals(type)) {
-				slide.append(new BitmapItem(level, item.getTextContent()));
-			}
-			else {
-				System.err.println(UNKNOWNTYPE);
-			}
+		catch (Exception e)
+		{
+			// TODO: Print to screen. After cooking RenderFacade
+			e.printStackTrace();
 		}
 	}
 
-	public void saveFile(Presentation presentation, String filename) throws IOException {
-		PrintWriter out = new PrintWriter(new FileWriter(filename));
-		out.println("<?xml version=\"1.0\"?>");
-		out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
-		out.println("<presentation>");
-		out.print("<showtitle>");
-		out.print(presentation.getTitle());
-		out.println("</showtitle>");
-		for (int slideNumber=0; slideNumber<presentation.getSize(); slideNumber++) {
-			Slide slide = presentation.getSlide(slideNumber);
-			out.println("<slide>");
-			out.println("<title>" + slide.getTitle() + "</title>");
-			Vector<SlideItem> slideItems = slide.getSlideItems();
-			for (int itemNumber = 0; itemNumber<slideItems.size(); itemNumber++) {
-				SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
-				out.print("<item kind="); 
-				if (slideItem instanceof TextItem) {
-					out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
-					out.print( ( (TextItem) slideItem).getText());
-				}
-				else {
-					if (slideItem instanceof BitmapItem) {
-						out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-						out.print( ( (BitmapItem) slideItem).getName());
-					}
-					else {
-						System.out.println("Ignoring " + slideItem);
-					}
-				}
-				out.println("</item>");
-			}
-			out.println("</slide>");
+	private String getValueFromAttribute(Attribute attribute)
+	{
+		return (attribute != null) ? attribute.getValue() : null;
+	}
+
+	private SlideItem handleTextItem(StartElement startElement) throws XMLStreamException, IOException, FontFormatException
+	{
+		Attribute styleType = startElement.getAttributeByName(STYLE);
+
+		Attribute font = startElement.getAttributeByName(FONT);
+		Attribute color = startElement.getAttributeByName(COLOR);
+		Attribute size = startElement.getAttributeByName(SIZE);
+		Attribute indent = startElement.getAttributeByName(INDENT);
+
+		String text = "";
+		StyleDirector styleDirector = new StyleDirector();
+		StyleBuilder styleBuilder = new StyleBuilder();
+
+		try
+		{
+			styleBuilder = switch (Integer.parseInt(this.getValueFromAttribute(styleType)))
+			{
+				case 1 -> styleDirector.makeHeading1(styleBuilder);
+				case 2 -> styleDirector.makeHeading2(styleBuilder);
+				case 4 -> styleDirector.makeHeading4(styleBuilder);
+				case 5 -> styleDirector.makeHeading5(styleBuilder);
+				default -> styleDirector.makeHeading3(styleBuilder);
+			};
 		}
-		out.println("</presentation>");
-		out.close();
+		catch (NumberFormatException e)
+		{
+			styleDirector.makeHeading3(styleBuilder);
+		}
+
+		if (font != null)
+		{
+			styleBuilder.font(this.getValueFromAttribute(font));
+		}
+		if (color != null)
+		{
+			styleBuilder.color(Color.getColor(this.getValueFromAttribute(color)));
+		}
+		if (size != null)
+		{
+			styleBuilder.fontSize(Integer.parseInt(this.getValueFromAttribute(size)));
+		}
+		if (indent != null)
+		{
+			styleBuilder.indent(Integer.parseInt(this.getValueFromAttribute(indent)));
+		}
+
+		XMLEvent event = eventReader.nextEvent();
+		if (event.isCharacters())
+		{
+			text = event.asCharacters().getData();
+		}
+
+		return new SlideTextItem(text, styleBuilder.build());
+	}
+
+	private SlideItem handleImageItem(StartElement startElement) throws XMLStreamException
+	{
+		Attribute xPos = startElement.getAttributeByName(IMAGE_X);
+		Attribute yPos = startElement.getAttributeByName(IMAGE_Y);
+
+		String filepath = "";
+
+		XMLEvent event = eventReader.nextEvent();
+		if (event.isCharacters())
+		{
+			filepath = event.asCharacters().getData();
+		}
+
+		return new SlideImageItem(filepath, Integer.parseInt(xPos.getValue()), Integer.parseInt(yPos.getValue()));
 	}
 }
