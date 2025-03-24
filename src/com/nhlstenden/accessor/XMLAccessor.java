@@ -24,7 +24,6 @@ public class XMLAccessor implements Accessor
 {
     private XMLEventReader eventReader;
 
-
     // XML tag names
     private static final String PRESENTATION = "presentation";
     private static final String VERSION = "version";
@@ -89,7 +88,8 @@ public class XMLAccessor implements Accessor
                         break;
                 }
             }
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             // TODO: Print to screen. After cooking RenderFacade
             e.printStackTrace();
@@ -124,7 +124,8 @@ public class XMLAccessor implements Accessor
                 case 5 -> styleDirector.makeHeading5(styleBuilder);
                 default -> styleDirector.makeHeading3(styleBuilder);
             };
-        } catch (NumberFormatException e)
+        }
+        catch (NumberFormatException e)
         {
             styleDirector.makeHeading3(styleBuilder);
         }

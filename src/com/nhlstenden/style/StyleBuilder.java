@@ -31,7 +31,6 @@ public class StyleBuilder
         return this;
     }
 
-
     public StyleBuilder fontSize(int size)
     {
         this.fontSize = size;
