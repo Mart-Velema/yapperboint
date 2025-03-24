@@ -39,7 +39,7 @@ public class SlideTextItem implements SlideItem
     public JLabel getJLabel()
     {
         JLabel jLabel = new JLabel(this.text);
-        jLabel.setHorizontalTextPosition(this.getStyle().indentation);
+        jLabel.setAlignmentX(this.getStyle().indentation);
         jLabel.setFont(this.getStyle().font);
 
         return jLabel;

@@ -67,7 +67,7 @@ public class Translation
 
     public String getLanguage(Language language, MenuLabel menuLabel)
     {
-        return this.translations.get(language).get(menuLabel);
+        return this.translations.get(menuLabel).get(language);
     }
 
     private HashMap<MenuLabel, HashMap<Language, String>> getTranslationsFromFile()
