@@ -77,11 +77,12 @@ public class Translation
             Gson gson = new Gson();
             JsonReader jsonReader = new JsonReader(new FileReader("translations.json"));
 
-            Type type = new TypeToken<HashMap<MenuLabel, HashMap<Language, String>>>() {}.getType();
+            Type type = new TypeToken<HashMap<MenuLabel, HashMap<Language, String>>>()
+            {
+            }.getType();
 
             return gson.fromJson(jsonReader, type);
-        }
-        catch (FileNotFoundException e)
+        } catch (FileNotFoundException e)
         {
             throw new RuntimeException("ERROR: Failed to start JabberPoint: " + e.getMessage() + e.getCause());
         }

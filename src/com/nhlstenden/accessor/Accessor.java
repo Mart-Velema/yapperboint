@@ -2,5 +2,5 @@ package com.nhlstenden.accessor;
 
 public interface Accessor
 {
-	void loadFile(String filename);
+    void loadFile(String filename);
 }
