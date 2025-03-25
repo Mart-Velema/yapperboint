@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE presentation SYSTEM "jabberpoint.dtd">
+<presentation>
+    <version>1.0.0</version>
+    <presentationTitle>Demo presentation</presentationTitle>
+    <slide>
+        <title>com.nhlstenden.JabberPoint</title>
+        <textItem>A text item with no styles, so default style</textItem>
+        <textItem style="1">A text item with a preset style</textItem>
+        <textItem font="Helvetica" color="black" size="16" indent="12">A text item with a custom style</textItem>
+        <imageItem x="100" y="100">/path/to/file.jpg</imageItem>
+    </slide>
+    <slide>
+        <title>com.nhlstenden.JabberPoint</title>
+        <textItem>A text item with no styles, so default style</textItem>
+        <textItem style="1">A text item with a preset style</textItem>
+        <textItem font="Helvetica" color="black" size="16" indent="12">A text item with a custom style</textItem>
+        <imageItem x="100" y="100">/path/to/file.jpg</imageItem>
+    </slide>
+</presentation>
