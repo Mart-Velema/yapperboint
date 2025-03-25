@@ -60,11 +60,27 @@ public class RenderFacade
         String presentationTitle = Presentation.getInstance().getPresentationTitle();
         this.jFrame.setTitle(presentationTitle + ": " +  slide.getTitle());
 
-        for (SlideItem currentSlideItem : slide.getItems())
+        JLayeredPane layeredPane = new JLayeredPane();
+
+        JPanel textJPanel = new JPanel();
+        textJPanel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
+        textJPanel.setLayout(new BoxLayout(textJPanel, BoxLayout.Y_AXIS));
+
+        for (SlideItem currentSlideItem : slide.getTextItems())
         {
-            JLabel jLabel = currentSlideItem.getJLabel();
-            this.jFrame.add(jLabel);
+            textJPanel.add(currentSlideItem.getJLabel());
         }
+
+        layeredPane.add(textJPanel, 0);
+
+        JPanel imageJPanel = new JPanel();
+
+        for (SlideItem currentSlideItem : slide.getImageItems())
+        {
+            imageJPanel.add(currentSlideItem.getJLabel());
+        }
+
+        layeredPane.add(textJPanel, 1);
 
         this.jFrame.repaint();
     }
