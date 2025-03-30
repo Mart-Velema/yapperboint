@@ -81,10 +81,10 @@ public class XMLAccessor implements Accessor
                         presentation.getSlides().getLast().setTitle(event.asCharacters().getData());
                         break;
                     case TEXT_ITEM:
-                        presentation.getSlides().getLast().addItem(handleTextItem(startElement));
+                        presentation.getSlides().getLast().addTextItem(handleTextItem(startElement));
                         break;
                     case IMAGE_ITEM:
-                        presentation.getSlides().getLast().addItem(handleImageItem(startElement));
+                        presentation.getSlides().getLast().addImageItem(handleImageItem(startElement));
                         break;
                 }
             }
