@@ -58,30 +58,39 @@ public class RenderFacade
         this.clear();
 
         String presentationTitle = Presentation.getInstance().getPresentationTitle();
-        this.jFrame.setTitle(presentationTitle + ": " +  slide.getTitle());
+        this.jFrame.setTitle(presentationTitle + ": " + slide.getTitle());
 
         JLayeredPane layeredPane = new JLayeredPane();
 
         JPanel textJPanel = new JPanel();
-        textJPanel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
+        textJPanel.setBounds(0, 0, WIDTH, HEIGHT);
         textJPanel.setLayout(new BoxLayout(textJPanel, BoxLayout.Y_AXIS));
+        textJPanel.setOpaque(false);
 
         for (SlideItem currentSlideItem : slide.getTextItems())
         {
             textJPanel.add(currentSlideItem.getJLabel());
         }
 
-        layeredPane.add(textJPanel, 0);
+        layeredPane.add(textJPanel, 1);
 
         JPanel imageJPanel = new JPanel();
+        imageJPanel.setBounds(0, 0, WIDTH, HEIGHT);
+        imageJPanel.setLayout(null);
+        imageJPanel.setOpaque(false);
 
         for (SlideItem currentSlideItem : slide.getImageItems())
         {
-            imageJPanel.add(currentSlideItem.getJLabel());
+            JLabel jLabel = currentSlideItem.getJLabel();
+            jLabel.setBounds(jLabel.getX(), jLabel.getY(), jLabel.getPreferredSize().width, jLabel.getPreferredSize().height);
+            imageJPanel.add(jLabel);
         }
 
-        layeredPane.add(textJPanel, 1);
+        layeredPane.add(imageJPanel, 0);
+        layeredPane.setOpaque(false);
 
+        this.jFrame.add(layeredPane);
+        this.jFrame.setVisible(true);
         this.jFrame.repaint();
     }
 }
