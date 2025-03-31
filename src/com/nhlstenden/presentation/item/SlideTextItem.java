@@ -4,6 +4,7 @@ import com.nhlstenden.facade.RenderFacade;
 import com.nhlstenden.style.Style;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class SlideTextItem implements SlideItem
@@ -41,8 +42,8 @@ public class SlideTextItem implements SlideItem
     public JLabel getJLabel()
     {
         JLabel jLabel = new JLabel(this.text);
-        jLabel.setAlignmentX((float) this.getStyle().indentation / RenderFacade.getWidth());
-        jLabel.setFont(this.getStyle().font);
+        jLabel.setBorder(new EmptyBorder(0, this.style.indentation * 10, 0, 0));
+        jLabel.setFont(this.style.font);
 
         return jLabel;
     }
