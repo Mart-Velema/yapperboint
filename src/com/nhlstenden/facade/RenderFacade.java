@@ -9,7 +9,6 @@ import com.nhlstenden.presentation.Slide;
 import com.nhlstenden.presentation.item.SlideItem;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class RenderFacade
 {

@@ -1,11 +1,9 @@
 package com.nhlstenden.presentation.item;
 
-import com.nhlstenden.facade.RenderFacade;
 import com.nhlstenden.style.Style;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
 
 public class SlideTextItem implements SlideItem
 {
