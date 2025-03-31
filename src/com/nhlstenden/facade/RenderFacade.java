@@ -9,6 +9,7 @@ import com.nhlstenden.presentation.Slide;
 import com.nhlstenden.presentation.item.SlideItem;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class RenderFacade
 {
@@ -37,6 +38,16 @@ public class RenderFacade
     public void setjFrame(JFrame jFrame)
     {
         this.jFrame = jFrame;
+    }
+
+    public static int getWidth()
+    {
+        return WIDTH;
+    }
+
+    public static int getHeight()
+    {
+        return HEIGHT;
     }
 
     public void makeWindow()
@@ -81,9 +92,7 @@ public class RenderFacade
 
         for (SlideItem currentSlideItem : slide.getImageItems())
         {
-            JLabel jLabel = currentSlideItem.getJLabel();
-            jLabel.setBounds(jLabel.getX(), jLabel.getY(), jLabel.getPreferredSize().width, jLabel.getPreferredSize().height);
-            imageJPanel.add(jLabel);
+            imageJPanel.add(currentSlideItem.getJLabel());
         }
 
         layeredPane.add(imageJPanel, 0);

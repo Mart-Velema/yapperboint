@@ -8,7 +8,7 @@
         <textItem>A text item with no styles, so default style</textItem>
         <textItem style="1">A text item with a preset style</textItem>
         <textItem font="Helvetica" color="black" size="16" indent="12">A text item with a custom style</textItem>
-        <imageItem x="0" y="0">JabberPoint.gif</imageItem>
+        <imageItem x="0" y="40">JabberPoint.gif</imageItem>
         <imageItem x="80" y="350">serclogo_fc.jpg</imageItem>
         <imageItem x="800" y="600">logo-woordmerk_ou.gif</imageItem>
     </slide>
