@@ -1,12 +1,42 @@
 {
-  "FILE": {"EN":  "File", "NL": "Bestand"},
-  "OPEN": {"EN":  "Open file", "NL": "Bestand openen"},
-  "EXIT": {"EN":  "Exit JabberPoint", "NL": "JabberPoint afsluiten"},
-  "VIEW": {"EN":  "View", "NL": "View"},
-  "NEXT_SLIDE": {"EN":  "Next slide", "NL": "Volgende slide"},
-  "PREVIOUS_SLIDE": {"EN":  "Previous slide", "NL": "Vorrige slide"},
-  "GO_TO_SLIDE": {"EN":  "Go to slide number", "NL": "Ga naar slide nummer"},
-  "ABOUT": {"EN":  "About", "NL": "About"},
-  "CHANGE_LANGUAGE": {"EN":  "Change language", "NL": "Verander taal"},
-  "YABBER_BOINT_TITLE": {"EN":  "JabberPoint", "NL": "JabberPoint"}
+  "FILE":{
+    "EN":"File",
+    "NL":"Bestand"
+  },
+  "OPEN":{
+    "EN":"Open file",
+    "NL":"Bestand openen"
+  },
+  "EXIT":{
+    "EN":"Exit JabberPoint",
+    "NL":"JabberPoint afsluiten"
+  },
+  "VIEW":{
+    "EN":"View",
+    "NL":"View"
+  },
+  "NEXT_SLIDE":{
+    "EN":"Next slide",
+    "NL":"Volgende slide"
+  },
+  "PREVIOUS_SLIDE":{
+    "EN":"Previous slide",
+    "NL":"Vorige slide"
+  },
+  "GO_TO_SLIDE":{
+    "EN":"Go to slide number",
+    "NL":"Ga naar slide nummer"
+  },
+  "ABOUT":{
+    "EN":"About",
+    "NL":"Over ons"
+  },
+  "CHANGE_LANGUAGE":{
+    "EN":"Change language",
+    "NL":"Verander taal"
+  },
+  "YABBER_BOINT_TITLE":{
+    "EN":"JabberPoint",
+    "NL":"JabberPoint"
+  }
 }
