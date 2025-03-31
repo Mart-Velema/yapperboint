@@ -21,7 +21,20 @@ public class StyleBuilder
 
     public Style build() throws IOException, FontFormatException
     {
-        return new Style(this.fontName.equals("MC") ? Font.createFont(Font.TRUETYPE_FONT, new File("./Monocraft.ttf")) : new Font(this.fontName, Font.PLAIN, this.fontSize), this.color, this.fontSize);
+        Font font;
+
+        if (this.fontName.equals("MC"))
+        {
+            Font baseFont = Font.createFont(Font.TRUETYPE_FONT, new File("./Monocraft.ttf"));
+
+            font = baseFont.deriveFont(Font.PLAIN, this.fontSize);
+        }
+        else
+        {
+            font = new Font(this.fontName, Font.PLAIN, this.fontSize);
+        }
+
+        return new Style(font, this.color, this.indent);
     }
 
     public StyleBuilder color(Color color)
