@@ -15,8 +15,10 @@ public class OpenMenuItem extends JabberMenuItem
     public OpenMenuItem()
     {
         super(MenuLabel.OPEN);
-        addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
+        addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent actionEvent)
+            {
                 String fileName = JOptionPane.showInputDialog("Open");
                 Accessor accessor = new XMLAccessor();
                 accessor.loadFile(fileName);

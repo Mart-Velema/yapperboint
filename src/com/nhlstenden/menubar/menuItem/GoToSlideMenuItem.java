@@ -2,7 +2,6 @@ package com.nhlstenden.menubar.menuItem;
 
 import com.nhlstenden.menubar.JabberMenuItem;
 import com.nhlstenden.menubar.MenuLabel;
-import com.nhlstenden.menubar.Translation;
 import com.nhlstenden.presentation.Presentation;
 
 import javax.swing.*;
@@ -15,7 +14,8 @@ public class GoToSlideMenuItem extends JabberMenuItem
     {
         super(MenuLabel.GO_TO_SLIDE);
         addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(ActionEvent actionEvent)
+            {
                 String pageNumberStr = JOptionPane.showInputDialog("Page number");
                 int pageNumber = Integer.parseInt(pageNumberStr);
                 Presentation.getInstance().setCurrentSlideNumber(pageNumber - 1);

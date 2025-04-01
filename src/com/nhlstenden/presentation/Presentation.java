@@ -72,6 +72,7 @@ public class Presentation
     public Slide goToSlide(int index)
     {
         this.setCurrentSlideNumber(index);
+
         return this.slides.get(currentSlideNumber);
     }
 

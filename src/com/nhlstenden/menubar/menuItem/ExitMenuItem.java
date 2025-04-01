@@ -2,7 +2,6 @@ package com.nhlstenden.menubar.menuItem;
 
 import com.nhlstenden.menubar.JabberMenuItem;
 import com.nhlstenden.menubar.MenuLabel;
-import com.nhlstenden.menubar.Translation;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

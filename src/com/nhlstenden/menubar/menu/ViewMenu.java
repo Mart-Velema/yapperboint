@@ -2,7 +2,6 @@ package com.nhlstenden.menubar.menu;
 
 import com.nhlstenden.menubar.JabberMenu;
 import com.nhlstenden.menubar.MenuLabel;
-import com.nhlstenden.menubar.Translation;
 import com.nhlstenden.menubar.menuItem.GoToSlideMenuItem;
 import com.nhlstenden.menubar.menuItem.LanguageMenuItem;
 import com.nhlstenden.menubar.menuItem.NextSlideMenuItem;
