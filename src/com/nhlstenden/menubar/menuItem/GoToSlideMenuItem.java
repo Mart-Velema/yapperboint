@@ -13,7 +13,8 @@ public class GoToSlideMenuItem extends JabberMenuItem
     public GoToSlideMenuItem()
     {
         super(MenuLabel.GO_TO_SLIDE);
-        addActionListener(new ActionListener() {
+        addActionListener(new ActionListener()
+        {
             public void actionPerformed(ActionEvent actionEvent)
             {
                 String pageNumberStr = JOptionPane.showInputDialog("Page number");

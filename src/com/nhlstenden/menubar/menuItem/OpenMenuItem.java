@@ -4,7 +4,6 @@ import com.nhlstenden.accessor.Accessor;
 import com.nhlstenden.accessor.XMLAccessor;
 import com.nhlstenden.menubar.JabberMenuItem;
 import com.nhlstenden.menubar.MenuLabel;
-import com.nhlstenden.presentation.Presentation;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
