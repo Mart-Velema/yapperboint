@@ -1,5 +1,6 @@
 package com.nhlstenden.accessor;
 
+import com.nhlstenden.facade.RenderFacade;
 import com.nhlstenden.presentation.Presentation;
 import com.nhlstenden.presentation.Slide;
 import com.nhlstenden.presentation.item.SlideImageItem;
@@ -91,8 +92,20 @@ public class XMLAccessor implements Accessor
         }
         catch (Exception e)
         {
-            // TODO: Print to screen. After cooking RenderFacade
-            e.printStackTrace();
+            try
+            {
+                loadFile("404.xml");
+                Presentation.getInstance().getSlides().getFirst().addTextItem(new SlideTextItem(e.getMessage(), new StyleDirector().makeHeading3(new StyleBuilder()).build()));
+            }
+            catch (Exception ex)
+            {
+                Presentation.getInstance().getSlides().clear();
+            }
+        }
+        finally
+        {
+            Presentation.getInstance().setCurrentSlideNumber(0);
+            RenderFacade.getInstance().renderSlide(Presentation.getInstance().getCurrentSlide());
         }
     }
 
