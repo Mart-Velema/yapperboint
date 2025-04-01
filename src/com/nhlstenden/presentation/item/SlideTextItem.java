@@ -3,6 +3,7 @@ package com.nhlstenden.presentation.item;
 import com.nhlstenden.style.Style;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class SlideTextItem implements SlideItem
 {
@@ -39,8 +40,8 @@ public class SlideTextItem implements SlideItem
     public JLabel getJLabel()
     {
         JLabel jLabel = new JLabel(this.text);
-        jLabel.setAlignmentX(this.getStyle().indentation);
-        jLabel.setFont(this.getStyle().font);
+        jLabel.setBorder(new EmptyBorder(0, this.style.indentation * 10, 0, 0));
+        jLabel.setFont(this.style.font);
 
         return jLabel;
     }

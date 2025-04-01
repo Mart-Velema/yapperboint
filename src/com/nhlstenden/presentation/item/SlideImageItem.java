@@ -50,6 +50,7 @@ public class SlideImageItem implements SlideItem
     {
         JLabel jLabel = new JLabel(new ImageIcon(this.imagePath));
         jLabel.setLocation(this.positionX, this.positionY);
+        jLabel.setBounds(jLabel.getX(), jLabel.getY(), jLabel.getPreferredSize().width, jLabel.getPreferredSize().height);
 
         return jLabel;
     }

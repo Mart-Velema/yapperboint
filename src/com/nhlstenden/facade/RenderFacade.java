@@ -39,6 +39,16 @@ public class RenderFacade
         this.jFrame = jFrame;
     }
 
+    public static int getWidth()
+    {
+        return WIDTH;
+    }
+
+    public static int getHeight()
+    {
+        return HEIGHT;
+    }
+
     public void makeWindow()
     {
         this.jFrame.setJMenuBar(new JabberMenuBar());
@@ -81,9 +91,7 @@ public class RenderFacade
 
         for (SlideItem currentSlideItem : slide.getImageItems())
         {
-            JLabel jLabel = currentSlideItem.getJLabel();
-            jLabel.setBounds(jLabel.getX(), jLabel.getY(), jLabel.getPreferredSize().width, jLabel.getPreferredSize().height);
-            imageJPanel.add(jLabel);
+            imageJPanel.add(currentSlideItem.getJLabel());
         }
 
         layeredPane.add(imageJPanel, 0);
