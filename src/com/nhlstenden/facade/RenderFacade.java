@@ -55,6 +55,7 @@ public class RenderFacade
         this.jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.jFrame.setSize(WIDTH, HEIGHT);
         this.jFrame.setVisible(true);
+        this.jFrame.addKeyListener(new KeyController());
     }
 
     public void clear()
