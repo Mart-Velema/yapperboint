@@ -5,22 +5,13 @@ import com.nhlstenden.presentation.Presentation;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-/**
- * <p>This is the com.nhlstenden.facade.KeyController (KeyListener)</p>
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 public class KeyController extends KeyAdapter
 {
-    private Presentation presentation; // Er worden commando's gegeven aan de presentatie
-
-    public KeyController(Presentation p)
+    public KeyController()
     {
-        presentation = p;
     }
 
+    @Override
     public void keyPressed(KeyEvent keyEvent)
     {
         switch (keyEvent.getKeyCode())
@@ -29,17 +20,17 @@ public class KeyController extends KeyAdapter
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_ENTER:
             case '+':
-                presentation.nextSlide();
+                Presentation.getInstance().nextSlide();
                 break;
             case KeyEvent.VK_PAGE_UP:
             case KeyEvent.VK_UP:
             case '-':
-                presentation.previousSlide();
+                Presentation.getInstance().previousSlide();
                 break;
             case 'q':
             case 'Q':
                 System.exit(0);
-                break; // wordt nooit bereikt als het goed is
+                break;
             default:
                 break;
         }
