@@ -91,5 +91,15 @@
         <module name="RedundantModifier"/>
         <module name="UnusedImports"/>
         <module name="UpperEll"/>
+        <module name="Regexp">
+            <property name="format" value="(;|\})\n[\t ]*return.*;"/>
+            <property name="ignoreComments" value="true"/>
+            <property name="illegalPattern" value="true"/>
+            <property name="message" value="A blank line is required before a return statement."/>
+        </module>
+        <module name="EmptyBlock">
+            <property name="option" value="TEXT"/>
+            <property name="tokens" value="LITERAL_IF, LITERAL_ELSE, LITERAL_WHILE, LITERAL_FOR"/>
+        </module>
     </module>
 </module>

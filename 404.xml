@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE presentation SYSTEM "jabberpoint.dtd">
+<presentation>
+    <version>1.0.0</version>
+    <presentationTitle>ERROR</presentationTitle>
+    <slide>
+        <title>404 Page not found</title>
+        <textItem style="1">404 Page not found</textItem>
+    </slide>
+</presentation>
