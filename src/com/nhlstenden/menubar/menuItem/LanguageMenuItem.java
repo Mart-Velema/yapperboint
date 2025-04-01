@@ -3,7 +3,6 @@ package com.nhlstenden.menubar.menuItem;
 import com.nhlstenden.menubar.*;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,7 +19,6 @@ public class LanguageMenuItem extends JabberMenu
                 public void actionPerformed(ActionEvent actionEvent)
                 {
                     Translation.getInstance().notify(language);
-                    System.out.println(language);
                 }
             });
             add(languageItem);
