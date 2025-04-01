@@ -17,13 +17,13 @@ public class KeyController extends KeyAdapter
         switch (keyEvent.getKeyCode())
         {
             case KeyEvent.VK_PAGE_DOWN:
-            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_ENTER:
             case '+':
                 Presentation.getInstance().nextSlide();
                 break;
             case KeyEvent.VK_PAGE_UP:
-            case KeyEvent.VK_UP:
+            case KeyEvent.VK_LEFT:
             case '-':
                 Presentation.getInstance().previousSlide();
                 break;
