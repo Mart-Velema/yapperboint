@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.nhlstenden</groupId>
-    <artifactId>YabberBoint</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>yabberboint</artifactId>
+    <version>0.0.4</version>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
@@ -66,5 +66,9 @@
             <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/Mart-Velema/yapperboint</url>
         </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/Mart-Velema/yabberboint</url>
+        </snapshotRepository>
     </distributionManagement>
 </project>

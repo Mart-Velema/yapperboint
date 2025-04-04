@@ -13,17 +13,14 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: maven
+      - name: install Maven
+        run: apt update -y ; apt install maven -y
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode -e deploy
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-permissions:
-  contents: read
-  packages: write
