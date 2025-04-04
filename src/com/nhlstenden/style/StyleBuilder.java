@@ -39,7 +39,8 @@ public class StyleBuilder
 
     public StyleBuilder color(Color color)
     {
-        if (color != null){
+        if (color != null)
+        {
             this.color = color;
         }
 
@@ -69,7 +70,8 @@ public class StyleBuilder
 
     public StyleBuilder font(String fontName)
     {
-        if (fontName != null){
+        if (fontName != null)
+        {
             this.fontName = fontName;
         }
 
