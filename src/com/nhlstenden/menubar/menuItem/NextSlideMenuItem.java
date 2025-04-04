@@ -17,8 +17,14 @@ public class NextSlideMenuItem extends JabberMenuItem
         {
             public void actionPerformed(ActionEvent actionEvent)
             {
-                Presentation.getInstance().nextSlide();
+                onClick();
             }
         });
+    }
+
+    @Override
+    public void onClick()
+    {
+        Presentation.getInstance().nextSlide();
     }
 }

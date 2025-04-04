@@ -28,4 +28,6 @@ public abstract class JabberMenuItem extends JMenuItem implements LanguageObserv
     {
         super.setText(Translation.getInstance().getLanguage(language, this.menuLabel));
     }
+
+    public abstract void onClick();
 }

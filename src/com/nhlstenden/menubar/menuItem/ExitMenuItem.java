@@ -16,8 +16,14 @@ public class ExitMenuItem extends JabberMenuItem
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                System.exit(0);
+                onClick();
             }
         });
+    }
+
+    @Override
+    public void onClick()
+    {
+        System.exit(0);
     }
 }

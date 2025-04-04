@@ -18,14 +18,20 @@ public class OpenMenuItem extends JabberMenuItem
         {
             public void actionPerformed(ActionEvent actionEvent)
             {
-                String fileName = JOptionPane.showInputDialog("Open");
-                if (fileName == null)
-                {
-                    return;
-                }
-                Accessor accessor = new XMLAccessor();
-                accessor.loadFile(fileName);
+                onClick();
             }
         });
+    }
+
+    @Override
+    public void onClick()
+    {
+        String fileName = JOptionPane.showInputDialog("Open");
+        if (fileName == null)
+        {
+            return;
+        }
+        Accessor accessor = new XMLAccessor();
+        accessor.loadFile(fileName);
     }
 }
