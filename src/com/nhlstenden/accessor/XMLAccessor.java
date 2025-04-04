@@ -143,22 +143,12 @@ public class XMLAccessor implements Accessor
             styleDirector.makeHeading3(styleBuilder);
         }
 
-        if (font != null)
-        {
-            styleBuilder.font(this.getValueFromAttribute(font));
-        }
-        if (color != null)
-        {
-            styleBuilder.color(Color.getColor(this.getValueFromAttribute(color)));
-        }
-        if (size != null)
-        {
-            styleBuilder.fontSize(Integer.parseInt(this.getValueFromAttribute(size)));
-        }
-        if (indent != null)
-        {
-            styleBuilder.indent(Integer.parseInt(this.getValueFromAttribute(indent)));
-        }
+        String itemFont = this.getValueFromAttribute(font);
+        Color itemColor = Color.getColor(this.getValueFromAttribute(color));
+        String itemSize = this.getValueFromAttribute(size);
+        String itemIndent = this.getValueFromAttribute(indent);
+
+        styleBuilder.font(itemFont).color(itemColor).fontSize(itemSize).indent(itemIndent);
 
         XMLEvent event = eventReader.nextEvent();
         if (event.isCharacters())
