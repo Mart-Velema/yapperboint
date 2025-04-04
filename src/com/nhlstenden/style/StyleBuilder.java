@@ -39,7 +39,23 @@ public class StyleBuilder
 
     public StyleBuilder color(Color color)
     {
-        this.color = color;
+        if (color != null){
+            this.color = color;
+        }
+
+        return this;
+    }
+
+    public StyleBuilder fontSize(String size)
+    {
+        try
+        {
+            this.fontSize = Integer.parseInt(size);
+        }
+        catch (NumberFormatException ignored)
+        {
+
+        }
 
         return this;
     }
@@ -53,7 +69,23 @@ public class StyleBuilder
 
     public StyleBuilder font(String fontName)
     {
-        this.fontName = fontName;
+        if (fontName != null){
+            this.fontName = fontName;
+        }
+
+        return this;
+    }
+
+    public StyleBuilder indent(String indent)
+    {
+        try
+        {
+            this.indent = Integer.parseInt(indent);
+        }
+        catch (NumberFormatException ignored)
+        {
+
+        }
 
         return this;
     }
