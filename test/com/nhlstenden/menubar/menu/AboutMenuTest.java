@@ -34,4 +34,10 @@ class AboutMenuTest
     {
         assertEquals(MenuLabel.ABOUT, this.aboutMenu.getMenuLabel());
     }
+
+    @Test
+    void AboutMenu_HasActionListeners_ShouldHaveOne()
+    {
+        assertEquals(1, this.aboutMenu.getActionListeners().length);
+    }
 }

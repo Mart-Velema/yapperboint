@@ -1,6 +1,5 @@
 package com.nhlstenden.menubar;
 
-import com.nhlstenden.menubar.menuItem.ExitMenuItem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -45,7 +44,7 @@ class TranslationTest
         this.translation.subscribe(this.languageObserver1);
         this.translation.unsubscribe(this.languageObserver1);
 
-        assertTrue(!(this.translation.getLanguageObservers().contains(this.languageObserver1)));
+        assertFalse(this.translation.getLanguageObservers().contains(this.languageObserver1));
     }
 
     @Test
@@ -56,7 +55,7 @@ class TranslationTest
 
         this.translation.unsubscribe(this.languageObserver1);
 
-        assertTrue(!(this.translation.getLanguageObservers().contains(this.languageObserver1)));
+        assertFalse(this.translation.getLanguageObservers().contains(this.languageObserver1));
         assertTrue(this.translation.getLanguageObservers().contains(this.languageObserver2));
     }
 
@@ -69,8 +68,8 @@ class TranslationTest
         this.translation.unsubscribe(this.languageObserver1);
         this.translation.unsubscribe(this.languageObserver2);
 
-        assertTrue(!(this.translation.getLanguageObservers().contains(this.languageObserver1)));
-        assertTrue(!(this.translation.getLanguageObservers().contains(this.languageObserver2)));
+        assertFalse(this.translation.getLanguageObservers().contains(this.languageObserver1));
+        assertFalse(this.translation.getLanguageObservers().contains(this.languageObserver2));
     }
 
     @Test

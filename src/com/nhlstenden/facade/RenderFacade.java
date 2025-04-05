@@ -29,16 +29,6 @@ public class RenderFacade
         return RenderFacade.INSTANCE;
     }
 
-    public JFrame getjFrame()
-    {
-        return jFrame;
-    }
-
-    public void setjFrame(JFrame jFrame)
-    {
-        this.jFrame = jFrame;
-    }
-
     public static int getWidth()
     {
         return WIDTH;

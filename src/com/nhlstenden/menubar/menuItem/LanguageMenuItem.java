@@ -21,7 +21,7 @@ public class LanguageMenuItem extends JabberMenu
                     Translation.getInstance().notify(language);
                 }
             });
-            add(languageItem);
+            this.add(languageItem);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.nhlstenden.menubar.menu;
 
-import com.nhlstenden.menubar.JabberMenuBar;
 import com.nhlstenden.menubar.MenuLabel;
 import com.nhlstenden.menubar.menuItem.GoToSlideMenuItem;
 import com.nhlstenden.menubar.menuItem.LanguageMenuItem;
@@ -10,11 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
-import javax.swing.plaf.SeparatorUI;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
