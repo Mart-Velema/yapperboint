@@ -7,8 +7,9 @@ on:
       - main
       - dev
   push:
-    branches:
+    branches-ignore:
       - dev
+      - main
 
 jobs:
   lint:

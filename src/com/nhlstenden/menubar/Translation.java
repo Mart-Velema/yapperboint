@@ -75,7 +75,7 @@ public class Translation
         try
         {
             Gson gson = new Gson();
-            JsonReader jsonReader = new JsonReader(new FileReader("translations.json"));
+            JsonReader jsonReader = new JsonReader(new FileReader("./resources/translations.json"));
 
             Type type = new TypeToken<HashMap<MenuLabel, HashMap<Language, String>>>() {}.getType();
 

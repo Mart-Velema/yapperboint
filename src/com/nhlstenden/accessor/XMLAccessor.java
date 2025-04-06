@@ -1,6 +1,5 @@
 package com.nhlstenden.accessor;
 
-import com.nhlstenden.facade.RenderFacade;
 import com.nhlstenden.presentation.Presentation;
 import com.nhlstenden.presentation.Slide;
 import com.nhlstenden.presentation.item.SlideImageItem;
@@ -94,7 +93,7 @@ public class XMLAccessor implements Accessor
         {
             try
             {
-                loadFile("404.xml");
+                loadFile("resources/presentations/404.xml");
                 Presentation.getInstance().getSlides().getFirst().addTextItem(new SlideTextItem(e.getMessage(), new StyleDirector().makeHeading3(new StyleBuilder()).build()));
             }
             catch (Exception ex)
@@ -104,8 +103,7 @@ public class XMLAccessor implements Accessor
         }
         finally
         {
-            Presentation.getInstance().setCurrentSlideNumber(0);
-            RenderFacade.getInstance().renderSlide(Presentation.getInstance().getCurrentSlide());
+            Presentation.getInstance().goToSlide(0);
         }
     }
 
@@ -144,7 +142,16 @@ public class XMLAccessor implements Accessor
         }
 
         String itemFont = this.getValueFromAttribute(font);
-        Color itemColor = Color.getColor(this.getValueFromAttribute(color));
+        Color itemColor;
+        try
+        {
+            itemColor = Color.decode(this.getValueFromAttribute(color));
+        }
+        catch (Exception e)
+        {
+            itemColor = null;
+        }
+
         String itemSize = this.getValueFromAttribute(size);
         String itemIndent = this.getValueFromAttribute(indent);
 

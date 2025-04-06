@@ -40,8 +40,9 @@ public class SlideTextItem implements SlideItem
     public JLabel getJLabel()
     {
         JLabel jLabel = new JLabel(this.text);
-        jLabel.setBorder(new EmptyBorder(0, this.style.indentation * 10, 0, 0));
-        jLabel.setFont(this.style.font);
+        jLabel.setBorder(new EmptyBorder(0, this.style.getIndentation() * 10, 0, 0));
+        jLabel.setFont(this.style.getFont());
+        jLabel.setForeground(this.style.getColor());
 
         return jLabel;
     }

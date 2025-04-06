@@ -10,7 +10,7 @@ public class JabberPoint
         Accessor accessor = new XMLAccessor();
         if (argv.length == 0)
         {
-            accessor.loadFile("demo.xml");
+            accessor.loadFile("./resources/presentations/demo.xml");
         }
         else
         {

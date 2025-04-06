@@ -5,11 +5,15 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - dev
 
 jobs:
   build:
     name: "Build and test"
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/dev')
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 21
@@ -18,5 +22,15 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+      - name: Install Maven
+        run: |
+          sudo apt update -y
+          sudo apt install xvfb libxtst6 libxi6 -y
+      - name: Setup XVFB
+        run: |
+          Xvfb :3 -screen 0 1200x800x24 &
+          sleep 5
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
+        env:
+          DISPLAY: :3

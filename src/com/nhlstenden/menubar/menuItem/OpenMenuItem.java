@@ -14,18 +14,24 @@ public class OpenMenuItem extends JabberMenuItem
     public OpenMenuItem()
     {
         super(MenuLabel.OPEN);
-        addActionListener(new ActionListener()
+        this.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent actionEvent)
             {
-                String fileName = JOptionPane.showInputDialog("Open");
-                if (fileName == null)
-                {
-                    return;
-                }
-                Accessor accessor = new XMLAccessor();
-                accessor.loadFile(fileName);
+                onClick();
             }
         });
+    }
+
+    @Override
+    public void onClick()
+    {
+        String fileName = JOptionPane.showInputDialog("Open");
+        if (fileName == null)
+        {
+            return;
+        }
+        Accessor accessor = new XMLAccessor();
+        accessor.loadFile(fileName);
     }
 }
