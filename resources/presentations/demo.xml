@@ -19,10 +19,114 @@
         <imageItem x="800" y="600">logo-woordmerk_ou.gif</imageItem>
     </slide>
     <slide>
-        <title>com.nhlstenden.JabberPoint</title>
+        <title>JabberPoint</title>
         <textItem>A text item with no styles, so default style</textItem>
         <textItem style="1">A text item with a preset style</textItem>
         <textItem font="Helvetica" color="black" size="16" indent="12">A text item with a custom style</textItem>
         <imageItem x="100" y="100">JabberPoint.gif</imageItem>
+    </slide>
+    <slide>
+        <title>Cavia Leger</title>
+        <imageItem x="925" y="718">fedora-extra-small.png</imageItem>
+        <imageItem x="92" y="78">fedora-extra-small.png</imageItem>
+        <imageItem x="444" y="704">fedora-extra-small.png</imageItem>
+        <imageItem x="1170" y="373">fedora-extra-small.png</imageItem>
+        <imageItem x="263" y="218">fedora-extra-small.png</imageItem>
+        <imageItem x="42" y="115">fedora-extra-small.png</imageItem>
+        <imageItem x="927" y="647">fedora-extra-small.png</imageItem>
+        <imageItem x="98" y="515">fedora-extra-small.png</imageItem>
+        <imageItem x="1082" y="140">fedora-extra-small.png</imageItem>
+        <imageItem x="1010" y="671">fedora-extra-small.png</imageItem>
+        <imageItem x="662" y="393">fedora-extra-small.png</imageItem>
+        <imageItem x="778" y="336">fedora-extra-small.png</imageItem>
+        <imageItem x="387" y="799">fedora-extra-small.png</imageItem>
+        <imageItem x="425" y="675">fedora-extra-small.png</imageItem>
+        <imageItem x="1109" y="449">fedora-extra-small.png</imageItem>
+        <imageItem x="576" y="781">fedora-extra-small.png</imageItem>
+        <imageItem x="520" y="334">fedora-extra-small.png</imageItem>
+        <imageItem x="124" y="568">fedora-extra-small.png</imageItem>
+        <imageItem x="634" y="275">fedora-extra-small.png</imageItem>
+        <imageItem x="1033" y="222">fedora-extra-small.png</imageItem>
+        <imageItem x="498" y="465">fedora-extra-small.png</imageItem>
+        <imageItem x="1043" y="556">fedora-extra-small.png</imageItem>
+        <imageItem x="330" y="100">fedora-extra-small.png</imageItem>
+        <imageItem x="288" y="415">fedora-extra-small.png</imageItem>
+        <imageItem x="674" y="366">fedora-extra-small.png</imageItem>
+        <imageItem x="439" y="316">fedora-extra-small.png</imageItem>
+        <imageItem x="41" y="743">fedora-extra-small.png</imageItem>
+        <imageItem x="1165" y="36">fedora-extra-small.png</imageItem>
+        <imageItem x="401" y="426">fedora-extra-small.png</imageItem>
+        <imageItem x="595" y="763">fedora-extra-small.png</imageItem>
+        <imageItem x="1151" y="287">fedora-extra-small.png</imageItem>
+        <imageItem x="185" y="603">fedora-extra-small.png</imageItem>
+        <imageItem x="304" y="719">fedora-extra-small.png</imageItem>
+        <imageItem x="1012" y="730">fedora-extra-small.png</imageItem>
+        <imageItem x="858" y="351">fedora-extra-small.png</imageItem>
+        <imageItem x="944" y="505">fedora-extra-small.png</imageItem>
+        <imageItem x="695" y="700">fedora-extra-small.png</imageItem>
+        <imageItem x="213" y="787">fedora-extra-small.png</imageItem>
+        <imageItem x="1096" y="629">fedora-extra-small.png</imageItem>
+        <imageItem x="739" y="354">fedora-extra-small.png</imageItem>
+        <imageItem x="32" y="751">fedora-extra-small.png</imageItem>
+        <imageItem x="553" y="748">fedora-extra-small.png</imageItem>
+        <imageItem x="693" y="94">fedora-extra-small.png</imageItem>
+        <imageItem x="165" y="481">fedora-extra-small.png</imageItem>
+        <imageItem x="1108" y="685">fedora-extra-small.png</imageItem>
+        <imageItem x="354" y="548">fedora-extra-small.png</imageItem>
+        <imageItem x="577" y="280">fedora-extra-small.png</imageItem>
+        <imageItem x="1093" y="187">fedora-extra-small.png</imageItem>
+        <imageItem x="202" y="659">fedora-extra-small.png</imageItem>
+        <imageItem x="756" y="548">fedora-extra-small.png</imageItem>
+        <imageItem x="957" y="789">fedora-extra-small.png</imageItem>
+        <imageItem x="342" y="263">fedora-extra-small.png</imageItem>
+        <imageItem x="578" y="156">fedora-extra-small.png</imageItem>
+        <imageItem x="62" y="13">fedora-extra-small.png</imageItem>
+        <imageItem x="239" y="481">fedora-extra-small.png</imageItem>
+        <imageItem x="473" y="404">fedora-extra-small.png</imageItem>
+        <imageItem x="972" y="245">fedora-extra-small.png</imageItem>
+        <imageItem x="38" y="605">fedora-extra-small.png</imageItem>
+        <imageItem x="560" y="730">fedora-extra-small.png</imageItem>
+        <imageItem x="110" y="598">fedora-extra-small.png</imageItem>
+        <imageItem x="341" y="742">fedora-extra-small.png</imageItem>
+        <imageItem x="819" y="590">fedora-extra-small.png</imageItem>
+        <imageItem x="298" y="235">fedora-extra-small.png</imageItem>
+        <imageItem x="183" y="645">fedora-extra-small.png</imageItem>
+        <imageItem x="1146" y="271">fedora-extra-small.png</imageItem>
+        <imageItem x="1071" y="514">fedora-extra-small.png</imageItem>
+        <imageItem x="95" y="420">fedora-extra-small.png</imageItem>
+        <imageItem x="751" y="237">fedora-extra-small.png</imageItem>
+        <imageItem x="899" y="373">fedora-extra-small.png</imageItem>
+        <imageItem x="268" y="331">fedora-extra-small.png</imageItem>
+        <imageItem x="1186" y="117">fedora-extra-small.png</imageItem>
+        <imageItem x="404" y="365">fedora-extra-small.png</imageItem>
+        <imageItem x="659" y="250">fedora-extra-small.png</imageItem>
+        <imageItem x="812" y="23">fedora-extra-small.png</imageItem>
+        <imageItem x="116" y="681">fedora-extra-small.png</imageItem>
+        <imageItem x="893" y="773">fedora-extra-small.png</imageItem>
+        <imageItem x="1023" y="391">fedora-extra-small.png</imageItem>
+        <imageItem x="1163" y="318">fedora-extra-small.png</imageItem>
+        <imageItem x="704" y="159">fedora-extra-small.png</imageItem>
+        <imageItem x="915" y="56">fedora-extra-small.png</imageItem>
+        <imageItem x="121" y="324">fedora-extra-small.png</imageItem>
+        <imageItem x="174" y="10">fedora-extra-small.png</imageItem>
+        <imageItem x="843" y="519">fedora-extra-small.png</imageItem>
+        <imageItem x="679" y="124">fedora-extra-small.png</imageItem>
+        <imageItem x="556" y="484">fedora-extra-small.png</imageItem>
+        <imageItem x="612" y="29">fedora-extra-small.png</imageItem>
+        <imageItem x="823" y="162">fedora-extra-small.png</imageItem>
+        <imageItem x="366" y="585">fedora-extra-small.png</imageItem>
+        <imageItem x="474" y="737">fedora-extra-small.png</imageItem>
+        <imageItem x="80" y="408">fedora-extra-small.png</imageItem>
+        <imageItem x="595" y="515">fedora-extra-small.png</imageItem>
+        <imageItem x="1025" y="68">fedora-extra-small.png</imageItem>
+        <imageItem x="521" y="28">fedora-extra-small.png</imageItem>
+        <imageItem x="940" y="655">fedora-extra-small.png</imageItem>
+        <imageItem x="138" y="480">fedora-extra-small.png</imageItem>
+        <imageItem x="894" y="391">fedora-extra-small.png</imageItem>
+        <imageItem x="494" y="276">fedora-extra-small.png</imageItem>
+        <imageItem x="723" y="534">fedora-extra-small.png</imageItem>
+        <imageItem x="650" y="605">fedora-extra-small.png</imageItem>
+        <imageItem x="325" y="147">fedora-extra-small.png</imageItem>
+
     </slide>
 </presentation>
