@@ -23,7 +23,7 @@ class GoToSlideMenuItemTest
     void setUp()
     {
         this.goToSlideMenuItem = new GoToSlideMenuItem();
-        new XMLAccessor().loadFile("demo.xml");
+        new XMLAccessor().loadFile("./resources/presentations/demo.xml");
         System.setProperty("java.awt.headless", "true");
     }
 

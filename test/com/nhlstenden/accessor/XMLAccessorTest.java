@@ -34,7 +34,7 @@ class XMLAccessorTest
     @Test
     void loadFile_loadDemo_successfullyLoaded()
     {
-        xmlAccessor.loadFile("demo.xml");
+        xmlAccessor.loadFile("./resources/presentations/demo.xml");
 
         assertEquals(2, presentation.getSlides().size());
     }
@@ -50,7 +50,7 @@ class XMLAccessorTest
     @Test
     void loadFile_loadDemo_CorrectStyling() throws IOException, FontFormatException
     {
-        xmlAccessor.loadFile("test.xml");
+        xmlAccessor.loadFile("./resources/presentations/test.xml");
         List<Slide> slides = presentation.getSlides();
 
         StyleBuilder styleBuilder = new StyleBuilder();

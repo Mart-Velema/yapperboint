@@ -25,8 +25,7 @@ public class StyleBuilder
 
         if (this.fontName.equals("MC"))
         {
-            Font baseFont = Font.createFont(Font.TRUETYPE_FONT, new File("./Monocraft.ttf"));
-
+            Font baseFont = Font.createFont(Font.TRUETYPE_FONT, new File("./resources/fonts/Monocraft.ttf"));
             font = baseFont.deriveFont(Font.PLAIN, this.fontSize);
         }
         else
