@@ -52,7 +52,7 @@ public class Presentation
 
     public void setCurrentSlideNumber(int currentSlideNumber)
     {
-        if (this.slides != null && !this.slides.isEmpty())
+        if (!this.slides.isEmpty())
         {
             this.currentSlideNumber = Math.clamp(currentSlideNumber, 0, this.slides.size() - 1);
         }
@@ -102,7 +102,7 @@ public class Presentation
 
     public Slide getCurrentSlide()
     {
-        if (this.slides == null || this.slides.isEmpty())
+        if (this.slides.isEmpty())
         {
             return new Slide();
         }
