@@ -162,7 +162,7 @@ class RenderFacadeTest
 
         this.renderFacade.renderSlide(slide);
 
-        assertEquals("YabberBoint: test", this.jFrame.getTitle());
+        assertEquals("Demo presentation: test", this.jFrame.getTitle());
     }
 
     @Test
@@ -173,7 +173,7 @@ class RenderFacadeTest
 
         this.renderFacade.renderSlide(slide);
 
-        assertEquals("YabberBoint: test two", this.jFrame.getTitle());
+        assertEquals("Demo presentation: test two", this.jFrame.getTitle());
     }
 
     @Test

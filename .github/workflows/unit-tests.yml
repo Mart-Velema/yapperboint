@@ -20,8 +20,8 @@ jobs:
           cache: maven
       - name: Install Maven
         run: |
-          apt update -y
-          apt install xvfb libxtst6 libxi6 -y
+          sudo apt update -y
+          sudo apt install xvfb libxtst6 libxi6 -y
       - name: Setup XVFB
         run: |
           Xvfb :3 -screen 0 1200x800x24 &
