@@ -1,6 +1,7 @@
 package com.nhlstenden.style;
 
 import java.awt.*;
+import java.util.Objects;
 
 public class Style
 {
@@ -43,5 +44,22 @@ public class Style
     public void setIndentation(int indentation)
     {
         this.indentation = indentation;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+        {
+            return true;
+        }
+        if (!(o instanceof Style style))
+        {
+            return false;
+        }
+
+        return indentation == style.indentation &&
+                Objects.equals(font, style.font) &&
+                Objects.equals(color, style.color);
     }
 }

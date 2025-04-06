@@ -1,7 +1,6 @@
 package com.nhlstenden.presentation;
 
 import com.nhlstenden.facade.RenderFacade;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,8 +52,14 @@ public class Presentation
 
     public void setCurrentSlideNumber(int currentSlideNumber)
     {
-        this.currentSlideNumber = Math.clamp(currentSlideNumber, 0, this.slides.size() - 1);
-        RenderFacade.getInstance().renderSlide(this.getCurrentSlide());
+        if (this.slides != null && !this.slides.isEmpty())
+        {
+            this.currentSlideNumber = Math.clamp(currentSlideNumber, 0, this.slides.size() - 1);
+        }
+        else
+        {
+            this.currentSlideNumber = 0;
+        }
     }
 
     public List<Slide> getSlides()
@@ -65,32 +70,43 @@ public class Presentation
     public void setSlides(List<Slide> slides)
     {
         this.slides = slides;
+        this.setCurrentSlideNumber(0);
     }
 
     public void addSlide(Slide slide)
     {
+        if (slide == null)
+        {
+            return;
+        }
+
         this.slides.add(slide);
     }
 
-    public Slide goToSlide(int index)
+    public void goToSlide(int index)
     {
         this.setCurrentSlideNumber(index);
 
-        return this.slides.get(currentSlideNumber);
+        RenderFacade.getInstance().renderSlide(this.getCurrentSlide());
     }
 
-    public Slide nextSlide()
+    public void nextSlide()
     {
-        return this.goToSlide(++this.currentSlideNumber);
+        this.goToSlide(++this.currentSlideNumber);
     }
 
-    public Slide previousSlide()
+    public void previousSlide()
     {
-        return this.goToSlide(--this.currentSlideNumber);
+        this.goToSlide(--this.currentSlideNumber);
     }
 
     public Slide getCurrentSlide()
     {
+        if (this.slides == null || this.slides.isEmpty())
+        {
+            return new Slide();
+        }
+
         return this.slides.get(currentSlideNumber);
     }
 }
