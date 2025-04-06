@@ -13,7 +13,7 @@ public class NextSlideMenuItem extends JabberMenuItem
     public NextSlideMenuItem()
     {
         super(MenuLabel.NEXT_SLIDE);
-        addActionListener(new ActionListener()
+        this.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent actionEvent)
             {

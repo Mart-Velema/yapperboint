@@ -14,7 +14,7 @@ public class OpenMenuItem extends JabberMenuItem
     public OpenMenuItem()
     {
         super(MenuLabel.OPEN);
-        addActionListener(new ActionListener()
+        this.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent actionEvent)
             {

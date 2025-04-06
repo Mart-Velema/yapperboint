@@ -13,7 +13,7 @@ public class GoToSlideMenuItem extends JabberMenuItem
     public GoToSlideMenuItem()
     {
         super(MenuLabel.GO_TO_SLIDE);
-        addActionListener(new ActionListener()
+        this.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent actionEvent)
             {

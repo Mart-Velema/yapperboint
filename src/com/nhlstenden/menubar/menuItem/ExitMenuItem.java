@@ -11,7 +11,7 @@ public class ExitMenuItem extends JabberMenuItem
     public ExitMenuItem()
     {
         super(MenuLabel.EXIT);
-        addActionListener(new ActionListener()
+        this.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent actionEvent)
