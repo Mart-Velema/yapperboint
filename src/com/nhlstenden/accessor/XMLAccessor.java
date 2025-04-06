@@ -94,7 +94,7 @@ public class XMLAccessor implements Accessor
         {
             try
             {
-                loadFile("404.xml");
+                loadFile("resources/presentations/404.xml");
                 Presentation.getInstance().getSlides().getFirst().addTextItem(new SlideTextItem(e.getMessage(), new StyleDirector().makeHeading3(new StyleBuilder()).build()));
             }
             catch (Exception ex)
@@ -104,8 +104,7 @@ public class XMLAccessor implements Accessor
         }
         finally
         {
-            Presentation.getInstance().setCurrentSlideNumber(0);
-            RenderFacade.getInstance().renderSlide(Presentation.getInstance().getCurrentSlide());
+            Presentation.getInstance().goToSlide(0);
         }
     }
 

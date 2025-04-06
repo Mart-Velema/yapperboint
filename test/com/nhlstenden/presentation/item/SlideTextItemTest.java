@@ -35,7 +35,7 @@ class SlideTextItemTest
         JLabel jLabel = slideTextItem.getJLabel();
 
         Font font = Font
-                .createFont(Font.TRUETYPE_FONT, new File("./Monocraft.ttf"))
+                .createFont(Font.TRUETYPE_FONT, new File("./resources/fonts/Monocraft.ttf"))
                 .deriveFont(Font.PLAIN, 12);
 
         assertEquals("Test", jLabel.getText());

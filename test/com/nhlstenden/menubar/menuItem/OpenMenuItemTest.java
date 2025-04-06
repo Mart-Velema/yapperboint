@@ -30,7 +30,7 @@ class OpenMenuItemTest
     {
         try (MockedStatic<JOptionPane> mockedJOptionPane = Mockito.mockStatic(JOptionPane.class))
         {
-            mockedJOptionPane.when(() -> JOptionPane.showInputDialog(anyString())).thenReturn("demo.xml");
+            mockedJOptionPane.when(() -> JOptionPane.showInputDialog(anyString())).thenReturn("./resources/presentations/demo.xml");
 
             ActionListener actionListener = this.openMenuItem.getActionListeners()[0];
 
@@ -46,7 +46,7 @@ class OpenMenuItemTest
     {
         try (MockedStatic<JOptionPane> mockedJOptionPane = Mockito.mockStatic(JOptionPane.class))
         {
-            mockedJOptionPane.when(() -> JOptionPane.showInputDialog(anyString())).thenReturn("demo.xml");
+            mockedJOptionPane.when(() -> JOptionPane.showInputDialog(anyString())).thenReturn("./resources/presentations/demo.xml");
 
             this.openMenuItem.onClick();
         }

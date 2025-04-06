@@ -22,7 +22,7 @@ public class AboutMenu extends JabberMenu
                         "Dit is jabberpoint van Ian F. Darwin maar dan beter maar ook weer zeer scuffed",
                         getText(),
                         JOptionPane.INFORMATION_MESSAGE,
-                        new ImageIcon("./fedora-extra-small.png")
+                        new ImageIcon("./resources/images/fedora-extra-small.png")
                 );
             }
         });

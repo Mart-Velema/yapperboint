@@ -27,6 +27,6 @@ public class GoToSlideMenuItem extends JabberMenuItem
     {
         String pageNumberStr = JOptionPane.showInputDialog("Page number");
         int pageNumber = Integer.parseInt(pageNumberStr);
-        Presentation.getInstance().setCurrentSlideNumber(pageNumber - 1);
+        Presentation.getInstance().goToSlide(pageNumber - 1);
     }
 }
