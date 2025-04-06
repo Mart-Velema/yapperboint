@@ -20,8 +20,10 @@ jobs:
       - name: Get the release version
         id: get_version
         run: echo "RELEASE_VERSION=\${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+      - name: Build package
+        run: mvn clean package -Drevision=${{ env.RELEASE_VERSION }}
       - name: Publish package
-        run: mvn -Drevision=${{ env.RELEASE_VERSION }} --batch-mode clean deploy -DskipTests
+        run: mvn deploy -Drevision=${{ env.RELEASE_VERSION }} -DskipTests
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
