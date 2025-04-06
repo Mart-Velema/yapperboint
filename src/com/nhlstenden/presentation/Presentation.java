@@ -1,14 +1,6 @@
 package com.nhlstenden.presentation;
 
-import com.nhlstenden.accessor.Accessor;
-import com.nhlstenden.accessor.XMLAccessor;
 import com.nhlstenden.facade.RenderFacade;
-import com.nhlstenden.presentation.item.SlideTextItem;
-import com.nhlstenden.style.StyleBuilder;
-import com.nhlstenden.style.StyleDirector;
-
-import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
