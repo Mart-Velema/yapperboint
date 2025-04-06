@@ -1,6 +1,7 @@
 package com.nhlstenden.facade;
 
 import com.nhlstenden.menubar.JabberMenuBar;
+import com.nhlstenden.presentation.Presentation;
 import com.nhlstenden.presentation.Slide;
 import com.nhlstenden.presentation.item.SlideTextItem;
 import com.nhlstenden.style.Style;
@@ -162,7 +163,7 @@ class RenderFacadeTest
 
         this.renderFacade.renderSlide(slide);
 
-        assertEquals("Demo presentation: test", this.jFrame.getTitle());
+        assertEquals(Presentation.getInstance().getPresentationTitle() + ": test", this.jFrame.getTitle());
     }
 
     @Test
@@ -173,7 +174,7 @@ class RenderFacadeTest
 
         this.renderFacade.renderSlide(slide);
 
-        assertEquals("Demo presentation: test two", this.jFrame.getTitle());
+        assertEquals(Presentation.getInstance().getPresentationTitle() + ": test two", this.jFrame.getTitle());
     }
 
     @Test
