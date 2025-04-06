@@ -1,6 +1,5 @@
 package com.nhlstenden.accessor;
 
-import com.nhlstenden.facade.RenderFacade;
 import com.nhlstenden.presentation.Presentation;
 import com.nhlstenden.presentation.Slide;
 import com.nhlstenden.presentation.item.SlideImageItem;
