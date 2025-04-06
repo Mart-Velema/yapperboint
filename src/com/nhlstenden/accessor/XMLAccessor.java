@@ -144,7 +144,16 @@ public class XMLAccessor implements Accessor
         }
 
         String itemFont = this.getValueFromAttribute(font);
-        Color itemColor = Color.getColor(this.getValueFromAttribute(color));
+        Color itemColor;
+        try
+        {
+            itemColor = Color.decode(this.getValueFromAttribute(color));
+        }
+        catch (Exception e)
+        {
+            itemColor = null;
+        }
+
         String itemSize = this.getValueFromAttribute(size);
         String itemIndent = this.getValueFromAttribute(indent);
 
