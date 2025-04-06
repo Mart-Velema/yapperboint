@@ -21,10 +21,10 @@ class SlideImageItemTest
     @Test
     void getJLabel_correctFields_correctJLabel()
     {
-        slideImageItem.setImagePath("/fedora-extra-small.png");
+        slideImageItem.setImagePath("fedora-extra-small.png");
         JLabel jLabel = slideImageItem.getJLabel();
 
-        JLabel expected = new JLabel(new ImageIcon("/fedora-extra-small.png"));
+        JLabel expected = new JLabel(new ImageIcon("./resources/images/fedora-extra-small.png"));
         expected.setLocation(1, 1);
         expected.setBounds(expected.getX(), expected.getY(), expected.getPreferredSize().width, jLabel.getPreferredSize().height);
 
@@ -37,12 +37,12 @@ class SlideImageItemTest
     @Test
     void getJLabel_otherCorrectFields_correctJLabel()
     {
-        slideImageItem.setImagePath("/test.png");
+        slideImageItem.setImagePath("test.png");
         slideImageItem.setPositionX(200);
         slideImageItem.setPositionY(200);
         JLabel jLabel = slideImageItem.getJLabel();
 
-        JLabel expected = new JLabel(new ImageIcon("/test.png"));
+        JLabel expected = new JLabel(new ImageIcon("./resources/images/test.png"));
         expected.setLocation(200, 200);
         expected.setBounds(expected.getX(), expected.getY(), expected.getPreferredSize().width, jLabel.getPreferredSize().height);
 

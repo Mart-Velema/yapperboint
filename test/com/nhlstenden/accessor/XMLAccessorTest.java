@@ -36,7 +36,7 @@ class XMLAccessorTest
     {
         xmlAccessor.loadFile("./resources/presentations/demo.xml");
 
-        assertEquals(2, presentation.getSlides().size());
+        assertEquals(3, presentation.getSlides().size());
     }
 
     @Test
