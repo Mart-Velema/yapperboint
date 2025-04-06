@@ -49,13 +49,9 @@ public class StyleBuilder
 
     public StyleBuilder fontSize(String size)
     {
-        try
+        if (size != null && size.matches("-?\\d+"))
         {
             this.fontSize = Integer.parseInt(size);
-        }
-        catch (NumberFormatException ignored)
-        {
-
         }
 
         return this;
@@ -80,13 +76,9 @@ public class StyleBuilder
 
     public StyleBuilder indent(String indent)
     {
-        try
+        if (indent != null && indent.matches("[0-9]+"))
         {
             this.indent = Integer.parseInt(indent);
-        }
-        catch (NumberFormatException ignored)
-        {
-
         }
 
         return this;
