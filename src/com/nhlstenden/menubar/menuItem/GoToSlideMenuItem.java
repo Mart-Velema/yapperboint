@@ -13,14 +13,20 @@ public class GoToSlideMenuItem extends JabberMenuItem
     public GoToSlideMenuItem()
     {
         super(MenuLabel.GO_TO_SLIDE);
-        addActionListener(new ActionListener()
+        this.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent actionEvent)
             {
-                String pageNumberStr = JOptionPane.showInputDialog("Page number");
-                int pageNumber = Integer.parseInt(pageNumberStr);
-                Presentation.getInstance().setCurrentSlideNumber(pageNumber - 1);
+                onClick();
             }
         });
+    }
+
+    @Override
+    public void onClick()
+    {
+        String pageNumberStr = JOptionPane.showInputDialog("Page number");
+        int pageNumber = Integer.parseInt(pageNumberStr);
+        Presentation.getInstance().setCurrentSlideNumber(pageNumber - 1);
     }
 }

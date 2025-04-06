@@ -12,12 +12,18 @@ public class PreviousSlideMenuItem extends JabberMenuItem
     public PreviousSlideMenuItem()
     {
         super(MenuLabel.PREVIOUS_SLIDE);
-        addActionListener(new ActionListener()
+        this.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent actionEvent)
             {
-                Presentation.getInstance().previousSlide();
+                onClick();
             }
         });
+    }
+
+    @Override
+    public void onClick()
+    {
+        Presentation.getInstance().previousSlide();
     }
 }
