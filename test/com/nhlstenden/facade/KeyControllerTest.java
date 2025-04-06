@@ -114,7 +114,7 @@ class KeyControllerTest
     }
 
     @Test
-    @Disabled
+    @Disabled("Running this tests halts all tests due to System.exit(0) being called")
     void keyPressed_Q_ShouldExit()
     {
         KeyEvent keyEvent = new KeyEvent(RenderFacade.getInstance().getjFrame().getContentPane(), KeyEvent.KEY_PRESSED, 1, 0, 'Q', KeyEvent.CHAR_UNDEFINED);
@@ -123,7 +123,7 @@ class KeyControllerTest
     }
 
     @Test
-    @Disabled
+    @Disabled("Running this tests halts all tests due to System.exit(0) being called")
     void keyPressed_q_ShouldExit()
     {
         KeyEvent keyEvent = new KeyEvent(RenderFacade.getInstance().getjFrame().getContentPane(), KeyEvent.KEY_PRESSED, 1, 0, 'q', KeyEvent.CHAR_UNDEFINED);
